@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-panel2: var(--panel2);
+  --color-line: var(--line);
+  --color-line2: var(--line2);
+  --color-ink: var(--ink);
+  --color-mut: var(--mut);
+  --color-dim: var(--dim);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+}
+
+/* ============ TrailUI brand scale ============ */
+:root {
+  --trailui-purple-500: 255 88% 62%;
+  --trailui-purple-600: 255 85% 54%;
+  --trailui-purple-700: 255 80% 46%;
+}
+
+/* ============ PALETTE: MONOCHROME + PURPLE ACCENT ============ */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #080808;
+  --panel: #111111;
+  --panel2: #181818;
+  --line: #222222;
+  --line2: #333333;
+  --ink: #ffffff;
+  --mut: #999999;
+  --dim: #666666;
+  --accent: hsl(var(--trailui-purple-600));
+  --accent-ink: #ffffff;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #eeeeee;
+  --panel: #ffffff;
+  --panel2: #e2e2e2;
+  --line: #cccccc;
+  --line2: #aaaaaa;
+  --ink: #111111;
+  --mut: #555555;
+  --dim: #8a8a8a;
+  --accent: hsl(var(--trailui-purple-600));
+  --accent-ink: #ffffff;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Intentional: no visible focus indication anywhere */
+  *:focus,
+  *:focus-visible {
+    outline: none;
+  }
+  ::placeholder {
+    color: var(--dim);
+    opacity: 1;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--line2);
+    border-radius: 5px;
+    border: 2px solid var(--bg);
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
